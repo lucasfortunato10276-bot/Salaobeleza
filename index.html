@@ -172,6 +172,90 @@
             .image-stack { height: 350px; min-width: 100%; }
             .content-box h3 { font-size: 2.2rem; }
         }
+        /* --- CORREÇÕES DE RESPONSIVIDADE E ALINHAMENTO --- */
+
+/* Ajuste do Header para não quebrar em telas médias/pequenas */
+@media (max-width: 1024px) {
+    nav {
+        padding: 15px 3%;
+        gap: 10px;
+    }
+    .logo {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+    .nav-menu {
+        gap: 12px;
+    }
+    .nav-menu a {
+        font-size: 0.65rem;
+    }
+}
+
+/* Centralização do 'Ambiente Exclusivo' e seções ZigZag no Celular */
+@media (max-width: 768px) {
+    /* Esconde o menu se a tela for muito pequena para evitar sobreposição */
+    .nav-menu {
+        display: none; 
+    }
+    
+    section {
+        padding: 80px 6%; /* Espaçamento mais equilibrado nas bordas */
+    }
+
+    .zigzag-section, 
+    .zigzag-section.reverse,
+    .about {
+        flex-direction: column !important; /* Força o empilhamento */
+        text-align: center;
+        gap: 40px;
+    }
+
+    .image-stack {
+        width: 100%;
+        max-width: 450px; /* Evita que a foto fique gigante em tablets */
+        height: 300px;
+        margin: 0 auto;
+        flex: none; /* Remove o crescimento flexível que entorta o layout */
+    }
+
+    .content-box {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza o texto e botões no mobile */
+    }
+
+    .content-box h3 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .feature-list {
+        display: inline-block;
+        text-align: left; /* Mantém os checks alinhados à esquerda, mas o bloco centralizado */
+        margin: 0 auto 30px auto;
+    }
+
+    /* Ajuste para o efeito de borda dourada não vazar da tela */
+    .image-stack::after {
+        width: 95%;
+        height: 95%;
+        top: 10px;
+        left: 10px;
+    }
+}
+
+/* Ajuste fino para celulares muito pequenos (iPhone SE, etc) */
+@media (max-width: 380px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
     </style>
 </head>
 <body>
